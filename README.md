@@ -24,7 +24,7 @@ In order for all of the toast notifications to be visible, you will need to conf
 Toastada supports configuration right out of the box.  The available options can be accessed and set via `toastada.options` and include:
 
 | Option   | Description | Default  |
-| ------------- |:-------------:| -----|
+|:-------------:|:-------------:|:-----:|
 | prependTo     | The dom element that the toast notification will be prepended to. | `document.body.childNodes[0]` |
 |  lifeSpan  | The duration in milliseconds that the toast notification will appear on the page.      |   `4000` (ms) |
 | position | The position of the toast notifications on the page.  (Currently only default supported) | `top-right` |
