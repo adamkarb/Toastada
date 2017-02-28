@@ -1,0 +1,23 @@
+{
+  "name": "Micro-Toast",
+  "version": "0.1.0",
+  "description": "Vanilla Javascript lightweight notifications.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "./node_modules/browser-sync/bin/browser-sync.js start -s testing -f testing"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamkarb/Micro-Toast.git"
+  },
+  "keywords": [],
+  "author": "Adam Karbiener",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamkarb/Micro-Toast/issues"
+  },
+  "homepage": "https://github.com/adamkarb/Micro-Toast#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.8"
+  }
+}
