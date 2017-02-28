@@ -2,7 +2,7 @@
 
     'use strict';
 
-    var toast = {
+    var toastada = {
 
         options: {
             prependTo: document.body.childNodes[0],
@@ -11,17 +11,22 @@
             animate: false,
             animateDuration: 0,
             classes: {
-                container: 'toast-box',
+                container: 'toast-container',
                 animate: 'toast-exit',
-                'default': 'toast',
-                success: 'success-toast',
-                warning: 'warn-toast',
-                error: 'error-toast'
+                default: 'toast',
+                success: 'toast-success',
+                info: 'toast-info',
+                warning: 'toast-warn',
+                error: 'toast-error'
             }
         },
 
         success: function(msg) {
             placeToast.call(this, msg, 'success');
+        },
+
+        info: function(msg) {
+            placeToast.call(this, msg, 'info');
         },
 
         warning: function(msg) {
@@ -91,17 +96,8 @@
         // toast will stay on the page
         setTimeout(function() {
 
-            if (!this.options.animate) {
-
-                newToast.remove();
-
-                var numToasts = document.querySelector('.' + this.options.classes.container).childNodes.length;
-
-                if (!numToasts) {
-                    toastContainer.remove();
-                }
-
-            } else {
+            // Animation is set to perform
+            if (this.options.animate && this.options.animateDuration) {
 
                 newToast.classList.add(this.options.classes.animate);
 
@@ -120,12 +116,22 @@
 
                 }.bind(this), this.options.animateDuration);
 
+            } else {
+
+                newToast.remove();
+
+                var numToasts = document.querySelector('.' + this.options.classes.container).childNodes.length;
+
+                if (!numToasts) {
+                    toastContainer.remove();
+                }
+
             }
 
         }.bind(this), this.options.lifeSpan);
 
     }
 
-    window.toast = toast;
+    window.toastada = toastada;
 
 })();
