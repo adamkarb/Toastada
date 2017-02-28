@@ -11,12 +11,12 @@
             animate: false,
             animateDuration: 0,
             classes: {
-                container: 'toast-box',
+                container: 'toast-container',
                 animate: 'toast-exit',
-                'default': 'toast',
-                success: 'success-toast',
-                warning: 'warn-toast',
-                error: 'error-toast'
+                default: 'toast',
+                success: 'toast-success',
+                warning: 'toast-warn',
+                error: 'toast-error'
             }
         },
 
