@@ -18,7 +18,7 @@ toastada.warning('Warning! You are about to delete important data!');
 
 toastada.error('Oh no! Something went wrong. Please try again.');
 ```
-In order for all of the toast notifications to be visible, you will need to configure the toast classes via the `toast.options` object that you can see below. These classes will be applied to their respective toast types, so you can style your toasts however you please! View the [demo](http://adamkarb.github.io/toastada-demo) for a live example. Take note of the use of the options object and the CSS classes. Feel free to copy the example CSS as you see fit.
+In order for all of the toast notifications to be visible, you will need to configure the toast classes via the `toast.options` object that you can see below. These classes will be applied to their respective toast types, so you can style your toasts however you please! [View the demo](http://adamkarb.github.io/toastada-demo) for a live example. Take note of the use of the options object and the CSS classes. Feel free to copy the example CSS as you see fit.
 
 ## Options
 Toastada supports configuration right out of the box.  The available options can be accessed and set via `toastada.options` and include:
@@ -38,3 +38,5 @@ Toastada supports configuration right out of the box.  The available options can
 | classes.info | The class name that will be applied to all toast notifications invoked using `toastada.info(message)`. | `toast-info` |
 | classes.warning | The class name that will be applied to all toast notifications invoked using `toastada.warning(message)`. | `toast-warning` |
 | classes.error | The class name that will be applied to all toast notifications invoked using `toastada.error(message)`. | `toast-error` |
+
+## [View demo](http://adamkarb.github.io/toastada-demo)
