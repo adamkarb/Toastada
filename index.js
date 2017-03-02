@@ -2,64 +2,92 @@
 
     'use strict';
 
+    var options = {
+        prependTo: document.body.childNodes[0],
+        lifeSpan: 4000,
+        position: 'top-right',
+        animate: false,
+        animateDuration: 0
+    };
+
+    var classes = {
+        container: 'toast-container',
+        animate: 'toast-exit',
+        default: 'toast',
+        success: 'toast-success',
+        info: 'toast-info',
+        warning: 'toast-warn',
+        error: 'toast-error'
+    };
+
     var toastada = {
 
-        options: {
-            prependTo: document.body.childNodes[0],
-            lifeSpan: 4000,
-            position: 'top-right',
-            animate: false,
-            animateDuration: 0,
-            classes: {
-                container: 'toast-container',
-                animate: 'toast-exit',
-                default: 'toast',
-                success: 'toast-success',
-                info: 'toast-info',
-                warning: 'toast-warn',
-                error: 'toast-error'
-            }
-        },
+        setOptions: setOptions,
+
+        setClasses: setClasses,
 
         success: function(msg) {
-            placeToast.call(this, msg, 'success');
+            placeToast(msg, 'success');
         },
 
         info: function(msg) {
-            placeToast.call(this, msg, 'info');
+            placeToast(msg, 'info');
         },
 
         warning: function(msg) {
-            placeToast.call(this, msg, 'warning');
+            placeToast(msg, 'warning');
         },
 
         error: function(msg) {
-            placeToast.call(this, msg, 'error');
+            placeToast(msg, 'error');
         }
 
     };
 
+    function setOptions(opts) {
+
+        for (var key in opts) {
+            if (opts.hasOwnProperty(key)) {
+                if (key in options) {
+                    options[key] = opts[key];
+                }
+            }
+        }
+
+    }
+
+    function setClasses(classDict) {
+
+        for (var key in classDict) {
+            if (classDict.hasOwnProperty(key)) {
+                if (key in classes) {
+                    classes[key] = classDict[key];
+                }
+            }
+        }
+
+    }
 
     function placeToast(html, toastType) {
 
-        var toastContainer = document.querySelector('.' + this.options.classes.container);
+        var toastContainer = document.querySelector('.' + classes.container);
 
         var containerExists = !!toastContainer;
 
         if (!toastContainer) {
             toastContainer = document.createElement('div');
-            toastContainer.className = this.options.classes.container;
+            toastContainer.className = classes.container;
         }
 
         var newToast = document.createElement('div');
-        newToast.className = this.options.classes.default + ' ' + this.options.classes[toastType];
+        newToast.className = classes.default + ' ' + classes[toastType];
 
         newToast.innerHTML = html;
 
         if (!containerExists) {
 
             // Set toast container position
-            switch(this.options.position) {
+            switch(options.position) {
 
                 case 'top-right':
                     toastContainer.style.top = '10px';
@@ -86,7 +114,7 @@
                     toastContainer.style.right = '10px';
             }
 
-            document.body.insertBefore(toastContainer, this.options.prependTo);
+            document.body.insertBefore(toastContainer, options.prependTo);
 
         }
 
@@ -97,30 +125,30 @@
         setTimeout(function() {
 
             // Animation is set to perform
-            if (this.options.animate && this.options.animateDuration) {
+            if (options.animate && options.animateDuration) {
 
-                newToast.classList.add(this.options.classes.animate);
+                newToast.classList.add(classes.animate);
 
                 // This timeout is used to defer the reomval of the
-                // toast from the dom for `this.options.animateDuration`
+                // toast from the dom for `options.animateDuration`
                 // milliseconds
                 setTimeout(function() {
 
                     newToast.remove();
 
-                    var numToasts = document.querySelector('.' + this.options.classes.container).childNodes.length;
+                    var numToasts = document.querySelector('.' + classes.container).childNodes.length;
 
                     if (!numToasts) {
                         toastContainer.remove();
                     }
 
-                }.bind(this), this.options.animateDuration);
+                }, options.animateDuration);
 
             } else {
 
                 newToast.remove();
 
-                var numToasts = document.querySelector('.' + this.options.classes.container).childNodes.length;
+                var numToasts = document.querySelector('.' + classes.container).childNodes.length;
 
                 if (!numToasts) {
                     toastContainer.remove();
@@ -128,7 +156,7 @@
 
             }
 
-        }.bind(this), this.options.lifeSpan);
+        }, options.lifeSpan);
 
     }
 
