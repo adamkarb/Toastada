@@ -1,4 +1,7 @@
 # Toastada
+
+![Toastada](toasty.gif "Mmm, Toasty")
+
 Vanilla Javascript toast notifications for your application. The goal of toastada is to provide a ligthweight javascript solution to creating your own custom notification system. By removing external dependencies, we can have the smallest possible library that works with all modern browsers.
 
 ## Getting started
