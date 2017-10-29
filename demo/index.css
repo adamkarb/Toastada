@@ -34,7 +34,6 @@
 
 /* Entire toast container */
 .toast-container {
-    position: fixed;
     z-index: 999999999;
     max-width: 300px;
     /*min-width: 300px;*/

@@ -77,6 +77,7 @@
         if (!toastContainer) {
             toastContainer = document.createElement('div');
             toastContainer.className = classes.container;
+            toastContainer.style.position = 'fixed';
         }
 
         var newToast = document.createElement('div');
@@ -94,20 +95,20 @@
                     toastContainer.style.right = '10px';
                     break;
 
-                // case 'top-left':
-                //     toastContainer.style.top = '10px';
-                //     toastContainer.style.left = '10px';
-                //     break;
-                //
-                // case 'bottom-left':
-                //     toastContainer.style.bottom = '10px';
-                //     toastContainer.style.left = '10px';
-                //     break;
-                //
-                // case 'bottom-right':
-                //     toastContainer.style.bottom = '10px';
-                //     toastContainer.style.right = '10px';
-                //     break;
+                case 'top-left':
+                    toastContainer.style.top = '10px';
+                    toastContainer.style.left = '10px';
+                    break;
+
+                case 'bottom-left':
+                    toastContainer.style.bottom = '10px';
+                    toastContainer.style.left = '10px';
+                    break;
+
+                case 'bottom-right':
+                    toastContainer.style.bottom = '10px';
+                    toastContainer.style.right = '10px';
+                    break;
 
                 default:
                     toastContainer.style.top = '10px';
