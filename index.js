@@ -20,6 +20,12 @@
         error: 'toast-error'
     };
 
+    var containerStyles = {
+      position: 'fixed',
+      z-index: 9999,
+      min-width: '200px'
+    }
+
     var toastada = {
 
         setOptions: setOptions,
@@ -77,7 +83,9 @@
         if (!toastContainer) {
             toastContainer = document.createElement('div');
             toastContainer.className = classes.container;
-            toastContainer.style.position = 'fixed';
+            for(var key in containerStyles){
+              toastContainer.style[key] = containerStyles[key];
+            }
         }
 
         var newToast = document.createElement('div');

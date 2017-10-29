@@ -32,13 +32,6 @@
 
 /* Toast stylings */
 
-/* Entire toast container */
-.toast-container {
-    z-index: 999999999;
-    max-width: 300px;
-    /*min-width: 300px;*/
-}
-
 /* Each toast gets this style */
 .toast {
     /*width: 300px;*/
