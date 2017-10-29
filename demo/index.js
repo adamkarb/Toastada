@@ -20,6 +20,12 @@
         error: 'toast-error'
     };
 
+    var containerStyles = {
+      'position': 'fixed',
+      'z-index': 9999,
+      'min-width': '200px'
+    }
+
     var toastada = {
 
         setOptions: setOptions,
@@ -77,6 +83,9 @@
         if (!toastContainer) {
             toastContainer = document.createElement('div');
             toastContainer.className = classes.container;
+            for(var key in containerStyles){
+              toastContainer.style[key] = containerStyles[key];
+            }
         }
 
         var newToast = document.createElement('div');
@@ -94,20 +103,20 @@
                     toastContainer.style.right = '10px';
                     break;
 
-                // case 'top-left':
-                //     toastContainer.style.top = '10px';
-                //     toastContainer.style.left = '10px';
-                //     break;
-                //
-                // case 'bottom-left':
-                //     toastContainer.style.bottom = '10px';
-                //     toastContainer.style.left = '10px';
-                //     break;
-                //
-                // case 'bottom-right':
-                //     toastContainer.style.bottom = '10px';
-                //     toastContainer.style.right = '10px';
-                //     break;
+                case 'top-left':
+                    toastContainer.style.top = '10px';
+                    toastContainer.style.left = '10px';
+                    break;
+
+                case 'bottom-left':
+                    toastContainer.style.bottom = '10px';
+                    toastContainer.style.left = '10px';
+                    break;
+
+                case 'bottom-right':
+                    toastContainer.style.bottom = '10px';
+                    toastContainer.style.right = '10px';
+                    break;
 
                 default:
                     toastContainer.style.top = '10px';
