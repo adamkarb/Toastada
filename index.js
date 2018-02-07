@@ -69,7 +69,6 @@
     }
 
     function shimForIe(node) {
-        console.log(node);
         Object.defineProperty(node, 'remove', {
             configurable: true,
             enumerable: true,
