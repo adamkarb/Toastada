@@ -174,6 +174,22 @@
 
     }
 
-    window.toastada = toastada;
+    if (typeof module !== 'undefined' && module.exports && typeof window === 'undefined') {
+    
+        module.exports = toastada;
+    
+    } else if (typeof define !== 'undefined' && define.amd) {
+     
+        define(function(){
+
+            return toastada;
+
+        });
+
+    } else {
+      
+      window.toastada = toastada;
+
+    }
 
 })();
