@@ -68,6 +68,18 @@
 
     }
 
+    function shimForIe(node) {
+        Object.defineProperty(node, 'remove', {
+            configurable: true,
+            enumerable: true,
+            writable: true,
+            value: function remove() {
+                if (this.parentNode !== null)
+                    this.parentNode.removeChild(this);
+            }
+        });
+    }
+
     function placeToast(html, toastType) {
 
         var toastContainer = document.querySelector('.' + classes.container);
@@ -77,10 +89,12 @@
         if (!toastContainer) {
             toastContainer = document.createElement('div');
             toastContainer.className = classes.container;
+            shimForIe(toastContainer);
         }
 
         var newToast = document.createElement('div');
         newToast.className = classes.default + ' ' + classes[toastType];
+        shimForIe(newToast);
 
         newToast.innerHTML = html;
 
